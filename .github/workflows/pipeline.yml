@@ -35,11 +35,12 @@ jobs:
       #   - insira uma referência para encontrá-la no código (exemplo CHAVE = "__CHAVE__")
       #   - injete a variável na referência, usando um sed 
       - name: 🔐 Inserir Secrets no JavaScript
-        #env:
-          #VAR: ${{ secrets.VAR  }}
+        env:
+          # API_KEY: ${{ secrets.API_KEY }}
+          # DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          MENSAGEM_SECRETA: ${{ secrets.MENSAGEM_SECRETA }}
         run: |
-          echo "Nenhum segredo inserido no código por enquanto"
-      #   sed -i "s|__VAR__|$VAR|g" src/script.js
+          sed -i "s|__MENSAGEM_SECRETA__|$MENSAGEM_SECRETA|g" src/index.html
 
       - name: ⚙️ Build
         run: |
@@ -50,7 +51,7 @@ jobs:
       # ❌ PASSO A IMPLEMENTAR — Secrets Scanning com Gitleaks
       # Dica: use a action oficial "gitleaks/gitleaks-action@v2" e passe o
       - name: 🔑 Secrets Scanning
-        uses: gitleaks/gitleaks-action@v2
+        uses: gitleaks/gitleaks-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
