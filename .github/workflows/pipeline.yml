@@ -20,12 +20,24 @@ jobs:
   build:
     name: Build, Segurança e Assinatura
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
 
     steps:
       - name: 📥 Checkout do Código
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Debug secrets
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          MENSAGEM_SECRETA: ${{ secrets.MENSAGEM_SECRETA }}
+        run: |
+          echo "API_KEY tamanho: ${#API_KEY}"
+          echo "DB_PASSWORD tamanho: ${#DB_PASSWORD}"
+          echo "MENSAGEM tamanho: ${#MENSAGEM_SECRETA}"
 
       # ⚠️ Assim que remover segredos do código, passar pra cá
       # Obs: não é uma alternativa tão robusta quanto um Vault por exemplo, mas já que o segredo estava em código....
@@ -36,11 +48,16 @@ jobs:
       #   - injete a variável na referência, usando um sed 
       - name: 🔐 Inserir Secrets no JavaScript
         env:
-          # API_KEY: ${{ secrets.API_KEY }}
-          # DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          API_KEY: ${{ secrets.API_KEY }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           MENSAGEM_SECRETA: ${{ secrets.MENSAGEM_SECRETA }}
         run: |
+          sed -i "s|__API_KEY__|$API_KEY|g" src/script.js
+          sed -i "s|__DB_PASSWORD__|$DB_PASSWORD|g" src/script.js
           sed -i "s|__MENSAGEM_SECRETA__|$MENSAGEM_SECRETA|g" src/index.html
+          grep -q '__API_KEY__' src/script.js && echo "API_KEY NÃO substituída" || echo "API_KEY substituída"
+          grep -q '__DB_PASSWORD__' src/script.js && echo "DB_PASSWORD NÃO substituída" || echo "DB_PASSWORD substituída"
+          grep -q '__MENSAGEM_SECRETA__' src/index.html && echo "MENSAGEM NÃO substituída" || echo "MENSAGEM substituída"
 
       - name: ⚙️ Build
         run: |
@@ -117,6 +134,7 @@ jobs:
   # JOB 2 — Verifica a assinatura e só então faz o deploy
   # ────────────────────────────────────────────────────────────────
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     name: Verificação e Deploy
     needs: build
     runs-on: ubuntu-latest
