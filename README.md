@@ -116,4 +116,9 @@ Vamos verificar se os valores são corretamente substítuidos após realizar uma
 
 <img width="1016" height="373" alt="image" src="https://github.com/user-attachments/assets/32feb9a1-0533-4ce5-b721-bb0394a27dfb" />
 
+### Reultado
+Nosso pipeline consumiu o secrets corretamente, modificando o header de nossa aplicação
+<img width="996" height="846" alt="image" src="https://github.com/user-attachments/assets/c3040438-d801-4688-85e1-2015ccf12142" />
+
+
 
