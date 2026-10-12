@@ -86,15 +86,9 @@ jobs:
       - name: ✍️ Instalar Cosign
         uses: sigstore/cosign-installer@v3
 
-      # ❌ PASSO A IMPLEMENTAR — Assinatura via Cosign
-      # Este passo NÃO assina de verdade — ele gera um bundle falso, só para
-      # demonstração.
-      #
-      # Dica da assinatura real:
-      #   cosign sign-blob artifact.tar --bundle artifact.sigstore.json --yes
       - name: ✍️ Assinar artefato
         run: |
-          echo '{ "mock": "assinatura-invalida-para-demonstracao" }' > artifact.sigstore.json
+          cosign sign-blob artifact.tar --bundle artifact.sigstore.json --yes
           echo "Assinatura MOCK gerada."
 
       # ── Publica o artefato + bundle de assinatura para o próximo job
