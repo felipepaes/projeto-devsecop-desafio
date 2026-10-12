@@ -20,7 +20,7 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
     - [x] **Github** Secrets
 - [x] SAST com **Semgrep**
 - [x] SCA com **Grype**
-- [ ] Assinatura do artefato com cosign
+- [x ] Assinatura do artefato com cosign
 - [ ] Deploy com **GitHub Pages**
 
 ## Como a pipeline funciona
@@ -75,6 +75,14 @@ PR - [ci: adiciona SAST (semgrep) ao pipeline](https://github.com/felipepaes/pro
 - grype passou sem vulnerabilidades detectadas
 
 PR - [ci: adiciona SCA (Grype) ao pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/4)
+
+---
+
+## Assinatura de artefato
+
+- implementa assinatura do artefato gerado com igstore/cosign-installer@v3
+
+PR - [Ci/implementa assinatura cosign](https://github.com/felipepaes/projeto-devsecop-desafio/pull/5)
 
 ---
 
