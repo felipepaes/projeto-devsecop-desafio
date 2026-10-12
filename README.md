@@ -90,4 +90,17 @@ PR - [Ci/implementa assinatura cosign](https://github.com/felipepaes/projeto-dev
 
 - remove bloqueio para rodar o Deploy em Pull Requests (isso permite testar o Deploy em um PR)
 
-- o ambiente não permite deploy de PRs, foi necessário testar o deploy com push diretamente na main
+- o ambiente não permite deploy de PRs, foi necessário realizar aceitar o PR, realizando o merge
+
+- o merge realizou o push na main, o que "trigou" a pipeline corretamente
+<img width="1481" height="362" alt="image" src="https://github.com/user-attachments/assets/568b8916-0a6b-4aa7-ab0d-4a63313edbff" />
+
+- dessa maneira, o deploy foi realiziado com sucesso
+<img width="1414" height="589" alt="image" src="https://github.com/user-attachments/assets/7dcc9431-d7ae-4407-b2a7-ad57759066f1" />
+
+Link para a aplicação: [https://felipepaes.github.io/projeto-devsecop-desafio/](https://felipepaes.github.io/projeto-devsecop-desafio/)
+
+PR - [ci(deploy): testa deploy na pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/6)
+
+
+
