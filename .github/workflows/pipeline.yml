@@ -106,7 +106,7 @@ jobs:
   # JOB 2 — Verifica a assinatura e só então faz o deploy
   # ────────────────────────────────────────────────────────────────
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     name: Verificação e Deploy
     needs: build
     runs-on: ubuntu-latest
