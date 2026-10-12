@@ -20,8 +20,8 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
     - [x] **Github** Secrets
 - [x] SAST com **Semgrep**
 - [x] SCA com **Grype**
-- [x ] Assinatura do artefato com cosign
-- [ ] Deploy com **GitHub Pages**
+- [x] Assinatura do artefato com cosign
+- [x] Deploy com **GitHub Pages**
 
 ## Como a pipeline funciona
 > **Substitua este bloco pela sua explicação após implementar a pipeline.**
@@ -86,3 +86,8 @@ PR - [Ci/implementa assinatura cosign](https://github.com/felipepaes/projeto-dev
 
 ---
 
+## Deploy
+
+- remove bloqueio para rodar o Deploy em Pull Requests (isso permite testar o Deploy em um PR)
+
+- o ambiente não permite deploy de PRs, foi necessário testar o deploy com push diretamente na main
