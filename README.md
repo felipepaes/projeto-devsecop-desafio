@@ -16,7 +16,8 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
 5. Documentar o funcionamento da pipeline neste README
 
 ## O que implementar
-- [ ] Secrets Scanning com **Gitleaks**
+- [x] Secrets Scanning com **Gitleaks**
+    - [x] **Github** Secrets
 - [ ] SAST com **Semgrep**
 - [ ] SCA com **Grype**
 - [ ] Assinatura do artefato com cosign
@@ -28,3 +29,22 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
 
 ## URL de Produção
 > Adicione aqui o link do GitHub Pages após o deploy.
+
+---
+
+
+# ChangeLogs
+
+## Secrets Scanning com GitLeaks + Github Secrets
+
+- Foi adicinada a action do Gitleaks. Também foi implementada a funcionalidade do github secrets para injetar variáveis de ambiente durante o pipeline.
+
+- Outro ajuste foi o gatilho para que a pipeline rode nos Pull Requests, isso facilita a desenvolvimento, refinamento e teste da pipeline.
+
+- Também foi adicionada uma checagem para executar o Deploy somente em pushs diretamente à branch main
+
+PR - [Secret Scanning e Github Secrets](https://github.com/felipepaes/projeto-devsecop-desafio/pull/2)
+
+---
+
+
