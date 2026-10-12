@@ -61,3 +61,20 @@ PR - [Secret Scanning e Github Secrets](https://github.com/felipepaes/projeto-de
 PR - [ci: adiciona SAST (semgrep) ao pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/3)
 
 ---
+
+## SCA - Grype
+
+- grype detectou vulnerabilidades nas dependências npm
+
+- versões das dependências npm atualizadas
+
+- grype detectou vulnerabilidades na action download-artifact
+
+- versão da action download-artifact atualizada
+
+- grype passou sem vulnerabilidades detectadas
+
+PR - [ci: adiciona SCA (Grype) ao pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/4)
+
+---
+
