@@ -35,6 +35,9 @@ A pipeline está **incompleta**. Os steps de segurança precisam ser implementad
 
 # ChangeLogs
 
+
+obs. os commits tentam seguir a especificações do [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/) para facilitar a navegação pelo código e futuras consultas aos PRs e commits.
+
 ## Secrets Scanning com GitLeaks + Github Secrets
 
 - Foi adicinada a action do Gitleaks. Também foi implementada a funcionalidade do github secrets para injetar variáveis de ambiente durante o pipeline.
@@ -47,4 +50,14 @@ PR - [Secret Scanning e Github Secrets](https://github.com/felipepaes/projeto-de
 
 ---
 
+## SAST - Semgrep
 
+- adicionado o semgrep ao pipeline com pip
+
+- o scan encontrou um ponto de bloqueio
+
+- realizado ajuste no código para passar pelo pipeline com sucesso
+
+PR - [ci: adiciona SAST (semgrep) ao pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/3)
+
+---
