@@ -103,4 +103,17 @@ Link para a aplicação: [https://felipepaes.github.io/projeto-devsecop-desafio/
 PR - [ci(deploy): testa deploy na pipeline](https://github.com/felipepaes/projeto-devsecop-desafio/pull/6)
 
 
+## Bônus
+
+Vamos experimentar modificar uma variável em nosso github secrets, esta variável substituirá nossso header "Gerenciador de Tarefas"
+
+<img width="682" height="701" alt="image" src="https://github.com/user-attachments/assets/dd71de65-813f-4335-98a6-a026dfcbe935" />
+
+Essa variável é substituída em nosso HTML durante a execução do pipeline
+<img width="494" height="236" alt="image" src="https://github.com/user-attachments/assets/f5814f72-63e6-4828-841f-a7b039933d19" />
+
+Vamos verificar se os valores são corretamente substítuidos após realizar uma build com a variável `__MENSAGEM_SECRETA__` modificada
+
+<img width="1016" height="373" alt="image" src="https://github.com/user-attachments/assets/32feb9a1-0533-4ce5-b721-bb0394a27dfb" />
+
 
